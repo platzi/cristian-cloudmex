@@ -1,5 +1,5 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
-use near_sdk::collections::{UnorderedMap, Vector};
+use near_sdk::collections::{UnorderedMap};
 use near_sdk::serde::{Deserialize, Serialize};
 use near_sdk::{env, near_bindgen, setup_alloc, Promise};
 
@@ -25,7 +25,7 @@ impl Default for Meme {
             creado_por: String::from(""),
             titulo: String::from(""),
             museo: String::from(""),
-            url: tring::from(""),
+            url: String::from(""),
             donaciones: 0,
         }
     }
