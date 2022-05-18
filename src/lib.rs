@@ -1,7 +1,7 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::collections::UnorderedMap;
 use near_sdk::serde::{Deserialize, Serialize};
-use near_sdk::{env, near_bindgen, setup_alloc, Promise};
+use near_sdk::{env, near_bindgen, setup_alloc};
 
 setup_alloc!();
 
@@ -167,28 +167,5 @@ impl SimpleMemeMuseum {
         }
     }
 
-    #[payable]
-    pub fn donar_a_meme(&mut self, id: u64) -> bool {
-        assert!(
-            env::attached_deposit() > 0,
-            "Debes de agregar NEAR para hacer una donación."
-        );
-
-        //Buscamos el meme
-        match self.memes.get(&id) {
-            //analizamos si el meme existe y mandamos el valor mutable de la colección
-            Some(mut meme) => {
-                //Si existe, guardamos la donación en el registro
-
-                meme.donaciones += env::attached_deposit();
-                self.memes.insert(&meme.id, &meme);
-
-                //Y le transferimos al creador del meme lo que le donaron
-                Promise::new(String::from(&meme.creado_por)).transfer(env::attached_deposit());
-
-                true
-            }
-            None => false,
-        }
-    }
+    
 }
