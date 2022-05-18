@@ -7,7 +7,7 @@ setup_alloc!();
 
 // **************** Estructura de Meme *********************************
 //
-// 2. Clases necesarias para el contrato
+// 2.  Clases necesarias para el contrato
 // Implementamos serde cuando necesitamos retornar la estructura serializada a JSON util en NEAR
 // CLI y frotend. En este caso se utilizan ambas serializaciones ya que sera utilizado borsh en la
 // serialización y deserialización del contrato en la blockchain de NEAR
