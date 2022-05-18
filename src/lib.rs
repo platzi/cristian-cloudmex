@@ -41,6 +41,8 @@ impl Default for Meme {
 impl Meme {
     pub fn new(titulo: String, url: String, museo: String) -> Self {
         Self {
+            //id: 0,
+            //creado_por: String::from(""),
             id: env::block_index(),
             creado_por: env::signer_account_id(),
             titulo,
